@@ -1,11 +1,897 @@
----
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
----
+<!-- SEO PRIMARY -->
+<title>EZCompu Soluciones — Computadores, Software y Desarrollo Web en Cimitarra, Santander</title>
+<meta name="description" content="EZCompu Soluciones en Cimitarra, Santander. Venta de computadores e impresoras, mantenimiento técnico, desarrollo web, Upcademy, EzSoft y más. Diagnóstico gratis."/>
+<meta name="keywords" content="computadores Cimitarra, servicio técnico Cimitarra Santander, venta computadores Santander, desarrollo web Cimitarra, reparacion impresoras Cimitarra, EZCompu, EzSoft, Upcademy, software inventarios, software rutas lecheras"/>
+<meta name="author" content="EZCompu Soluciones"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://ezcompusoluciones.com/"/>
+<link rel="icon" href="/logo.ico" />
 
-<Layout>
-	<Welcome />
-</Layout>
+<!-- GEO SEO -->
+<meta name="geo.region" content="CO-SAN"/>
+<meta name="geo.placename" content="Cimitarra, Santander, Colombia"/>
+<meta name="geo.position" content="6.3133;-73.9500"/>
+<meta name="ICBM" content="6.3133, -73.9500"/>
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://ezcompusoluciones.com/"/>
+<meta property="og:title" content="EZCompu Soluciones — Tecnología en Cimitarra, Santander"/>
+<meta property="og:description" content="Venta de computadores, mantenimiento técnico, desarrollo web, software a medida y formación tecnológica en Cimitarra, Santander."/>
+<meta property="og:image" content="https://ezcompusoluciones.com/og-image.jpg"/>
+<meta property="og:locale" content="es_CO"/>
+<meta property="og:site_name" content="EZCompu Soluciones"/>
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="EZCompu Soluciones — Cimitarra, Santander"/>
+<meta name="twitter:description" content="Computadores, impresoras, desarrollo web, EzSoft, Upcademy y más."/>
+
+<!-- SCHEMA.ORG STRUCTURED DATA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "EZCompu Soluciones",
+  "image": "https://ezcompusoluciones.com/logo3.png",
+  "@id": "https://ezcompusoluciones.com",
+  "url": "https://ezcompusoluciones.com",
+  "telephone": "",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Cra. 3 # 7-95",
+    "addressLocality": "Cimitarra",
+    "addressRegion": "Santander",
+    "postalCode": "687010",
+    "addressCountry": "CO"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 6.3133,
+    "longitude": -73.9500
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "08:00",
+      "closes": "13:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/EzCompuSoluciones"
+  ],
+  "description": "Venta de computadores e impresoras, mantenimiento técnico, desarrollo web, software EzSoft, plataforma Upcademy y software de rutas lecheras en Cimitarra, Santander.",
+  "priceRange": "$$",
+  "servesCuisine": null,
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios y Productos EZCompu",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Venta de Computadores e Impresoras"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mantenimiento y Reparación de Equipos"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Desarrollo Web y Proyectos Digitales"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "EzSoft - Software de Ventas e Inventarios"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Upcademy - Plataforma de Notas y Gestión"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Software Control de Rutas Lecheras"}}
+    ]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ez-navy: #1a1f5e;
+  --ez-navy-deep: #0f1340;
+  --ez-navy-light: #252b7a;
+  --ez-red: #cc1f1f;
+  --ez-red-bright: #e82929;
+  --ez-red-dim: rgba(204,31,31,0.12);
+  --ez-bg: #0b0d1a;
+  --ez-bg2: #0f1222;
+  --ez-card: #131828;
+  --ez-card2: #181d30;
+  --ez-border: rgba(255,255,255,0.07);
+  --ez-border2: rgba(255,255,255,0.13);
+  --ez-text: #e8eaf2;
+  --ez-muted: #8892aa;
+  --ez-subtle: #3d4460;
+  --ez-gold: #e8a020;
+  --ez-gold-dim: rgba(232,160,32,0.12);
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ez-bg);
+  color: var(--ez-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ──────────────── NAV ──────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; height: 70px;
+  background: rgba(11,13,26,0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(26,31,94,0.6);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo img { height: 44px; width: auto; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.88rem; font-weight: 500; letter-spacing: 0.03em;
+  color: var(--ez-muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ez-text); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+.nav-social { display: flex; gap: 0.5rem; }
+.nav-social a {
+  width: 32px; height: 32px; border-radius: 6px;
+  border: 1px solid var(--ez-border2); color: var(--ez-muted);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; font-size: 0.85rem; transition: all 0.2s;
+}
+.nav-social a:hover { border-color: var(--ez-red); color: var(--ez-red); }
+.nav-cta {
+  background: var(--ez-red); color: #fff;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.55rem 1.4rem; border-radius: 6px; text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: var(--ez-red-bright); transform: translateY(-1px); }
+
+/* ──────────────── HERO ──────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 130px 5vw 80px;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(26,31,94,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(204,31,31,0.08) 0%, transparent 60%);
+}
+.hero-lines {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(26,31,94,0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,31,94,0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-logo {
+  position: relative; z-index: 1; margin-bottom: 2.5rem;
+}
+.hero-logo img { width: min(480px, 80vw); height: auto; filter: drop-shadow(0 0 40px rgba(26,31,94,0.8)); }
+.hero-eyebrow {
+  position: relative; z-index: 1;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--ez-gold); border: 1px solid rgba(232,160,32,0.35);
+  padding: 0.3rem 1rem; border-radius: 100px; margin-bottom: 1.4rem;
+}
+.hero-eyebrow::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--ez-gold); }
+.hero-title {
+  position: relative; z-index: 1;
+  font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 800; line-height: 0.95; letter-spacing: -0.01em; text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.hero-title .red { color: var(--ez-red); }
+.hero-title .navy { color: #6a76d8; }
+.hero-sub {
+  position: relative; z-index: 1;
+  font-size: clamp(1rem, 2vw, 1.18rem); font-weight: 300; color: var(--ez-muted);
+  max-width: 600px; margin: 0 auto 2.8rem;
+}
+.hero-actions {
+  position: relative; z-index: 1;
+  display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+}
+.btn-red {
+  background: var(--ez-red); color: #fff;
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.85rem 2.4rem; border-radius: 7px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-red:hover { background: var(--ez-red-bright); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--ez-text);
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.85rem 2.4rem; border-radius: 7px;
+  border: 1px solid var(--ez-border2); text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--ez-red); color: var(--ez-red); }
+.hero-badges {
+  position: relative; z-index: 1;
+  display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;
+}
+.hero-badge {
+  font-size: 0.78rem; font-weight: 500;
+  padding: 0.3rem 0.85rem; border-radius: 100px;
+  border: 1px solid var(--ez-border2); color: var(--ez-muted);
+}
+
+/* ──────────────── STATS ──────────────── */
+.stats-strip {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  border-top: 1px solid var(--ez-border); border-bottom: 1px solid var(--ez-border);
+  background: rgba(26,31,94,0.08);
+}
+.stat { flex: 1; min-width: 140px; text-align: center; padding: 2rem 1.5rem; border-right: 1px solid var(--ez-border); }
+.stat:last-child { border-right: none; }
+.stat-n {
+  font-family: var(--font-display); font-size: 2.6rem; font-weight: 800;
+  color: var(--ez-red); letter-spacing: -0.01em; line-height: 1;
+}
+.stat-l { font-size: 0.82rem; color: var(--ez-muted); margin-top: 0.3rem; letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* ──────────────── SECTION ──────────────── */
+section { padding: 100px 5vw; }
+.section-chip {
+  display: inline-block; font-size: 0.73rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.25rem 0.85rem; border-radius: 4px; margin-bottom: 1rem;
+}
+.chip-red { background: var(--ez-red-dim); color: var(--ez-red); }
+.chip-navy { background: rgba(26,31,94,0.4); color: #8a94f0; }
+.chip-gold { background: var(--ez-gold-dim); color: var(--ez-gold); }
+.section-title {
+  font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase; line-height: 1.05;
+  margin-bottom: 0.9rem;
+}
+.section-sub { font-size: 1rem; color: var(--ez-muted); max-width: 520px; }
+.sh { margin-bottom: 4rem; }
+
+/* ──────────────── HARDWARE GRID ──────────────── */
+.hw-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5px;
+  background: var(--ez-border); border: 1px solid var(--ez-border); border-radius: 14px; overflow: hidden;
+}
+.hw-card {
+  background: var(--ez-card); padding: 2.5rem 2rem;
+  display: flex; flex-direction: column; gap: 0.9rem;
+  transition: background 0.25s;
+  position: relative; overflow: hidden;
+}
+.hw-card:hover { background: var(--ez-card2); }
+.hw-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--ez-red); transform: scaleX(0); transition: transform 0.3s; transform-origin: left;
+}
+.hw-card:hover::after { transform: scaleX(1); }
+.hw-ico {
+  width: 48px; height: 48px; border-radius: 10px; background: rgba(204,31,31,0.1);
+  display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+}
+.hw-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+.hw-card p { font-size: 0.88rem; color: var(--ez-muted); line-height: 1.65; }
+.hw-tag {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+  padding: 0.18rem 0.6rem; border-radius: 4px; width: fit-content;
+  background: var(--ez-red-dim); color: var(--ez-red);
+  text-transform: uppercase;
+}
+
+/* ──────────────── SOFTWARE CARDS ──────────────── */
+.sw-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem;
+}
+.sw-card {
+  background: var(--ez-card); border: 1px solid var(--ez-border);
+  border-radius: 14px; padding: 2.2rem 2rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  transition: border-color 0.25s, transform 0.2s;
+}
+.sw-card:hover { border-color: var(--ez-navy-light); transform: translateY(-3px); }
+.sw-header { display: flex; align-items: center; gap: 14px; }
+.sw-icon-wrap {
+  width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+}
+.sw-icon-wrap.red { background: var(--ez-red-dim); }
+.sw-icon-wrap.navy { background: rgba(26,31,94,0.4); }
+.sw-icon-wrap.gold { background: var(--ez-gold-dim); }
+.sw-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; }
+.sw-tagline { font-size: 0.78rem; color: var(--ez-muted); }
+.sw-desc { font-size: 0.9rem; color: var(--ez-muted); line-height: 1.7; }
+.sw-features { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+.sw-features li { font-size: 0.87rem; color: var(--ez-muted); display: flex; align-items: center; gap: 10px; }
+.sw-features li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; background: var(--ez-red); }
+.sw-badge {
+  align-self: flex-start; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.22rem 0.7rem; border-radius: 4px;
+}
+.sw-badge.prod { background: rgba(46,200,100,0.12); color: #2ec864; }
+.sw-badge.dev { background: rgba(77,158,255,0.12); color: #4d9eff; }
+.sw-badge.new { background: var(--ez-gold-dim); color: var(--ez-gold); }
+
+/* ──────────────── WEBDEV ──────────────── */
+.wd-wrap {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+.wd-visual {
+  background: var(--ez-card); border: 1px solid var(--ez-border);
+  border-radius: 14px; padding: 0;
+  overflow: hidden;
+}
+.wd-browser {
+  background: #1a1f30; padding: 0.7rem 1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  border-bottom: 1px solid var(--ez-border);
+}
+.wd-dot { width: 10px; height: 10px; border-radius: 50%; }
+.wd-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.wd-bar {
+  height: 10px; border-radius: 5px; background: rgba(26,31,94,0.5);
+}
+.wd-bar.short { width: 40%; }
+.wd-bar.med { width: 70%; }
+.wd-bar.full { width: 100%; }
+.wd-bar.red-accent { background: rgba(204,31,31,0.4); }
+.wd-grid-mock {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.5rem;
+}
+.wd-block {
+  background: rgba(26,31,94,0.3); border-radius: 6px; height: 60px;
+}
+.wd-block.accent { background: rgba(204,31,31,0.15); }
+.wd-content .section-chip { margin-bottom: 0.8rem; }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.tech-tag {
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.03em;
+  padding: 0.3rem 0.8rem; border-radius: 100px;
+  border: 1px solid var(--ez-border2); color: var(--ez-muted);
+  transition: all 0.2s;
+}
+.tech-tag:hover { border-color: #8a94f0; color: #8a94f0; }
+.wd-services { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem; }
+.wd-services li { font-size: 0.9rem; color: var(--ez-muted); display: flex; gap: 10px; align-items: center; }
+.wd-services li::before { content: '▸'; color: var(--ez-red); font-size: 0.75rem; flex-shrink: 0; }
+
+/* ──────────────── UBICACION ──────────────── */
+.location-section { background: var(--ez-bg2); }
+.loc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.map-frame {
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--ez-border); height: 380px;
+}
+.map-frame iframe { width: 100%; height: 100%; border: none; display: block; }
+.loc-info { display: flex; flex-direction: column; gap: 1.5rem; }
+.loc-item { display: flex; gap: 16px; align-items: flex-start; }
+.loc-ico {
+  width: 42px; height: 42px; border-radius: 8px; flex-shrink: 0;
+  background: var(--ez-red-dim);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.loc-item h4 {
+  font-family: var(--font-display); font-size: 0.9rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--ez-red); margin-bottom: 0.2rem;
+}
+.loc-item p { font-size: 0.9rem; color: var(--ez-muted); line-height: 1.6; }
+.reviews-strip {
+  display: flex; gap: 1rem; flex-direction: column; margin-top: 1.5rem;
+  padding: 1.5rem; background: var(--ez-card); border-radius: 12px;
+  border: 1px solid var(--ez-border);
+}
+.stars { color: #ffc107; font-size: 1rem; letter-spacing: 2px; }
+.review-text { font-size: 0.88rem; color: var(--ez-muted); font-style: italic; line-height: 1.6; }
+.review-author { font-size: 0.8rem; color: var(--ez-subtle); margin-top: 0.3rem; }
+
+/* ──────────────── REDES SOCIALES ──────────────── */
+.social-section { background: var(--ez-navy-deep); }
+.social-cards { display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center; margin-top: 3rem; }
+.social-card {
+  flex: 1; min-width: 200px; max-width: 260px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 2rem 1.8rem; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.25s, transform 0.2s;
+}
+.social-card:hover { transform: translateY(-4px); }
+.social-card.fb:hover { border-color: #1877f2; }
+.social-card.wa:hover { border-color: #25d366; }
+.social-card.ig:hover { border-color: #e1306c; }
+.social-card.yt:hover { border-color: #ff0000; }
+.s-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+}
+.s-icon.fb { background: rgba(24,119,242,0.15); }
+.s-icon.wa { background: rgba(37,211,102,0.15); }
+.s-icon.ig { background: rgba(225,48,108,0.12); }
+.s-icon.yt { background: rgba(255,0,0,0.12); }
+.s-name {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.s-handle { font-size: 0.82rem; color: var(--ez-muted); }
+
+/* ──────────────── CTA ──────────────── */
+.cta-section {
+  text-align: center; padding: 110px 5vw;
+  background: linear-gradient(to bottom, var(--ez-bg), var(--ez-navy-deep));
+  position: relative; overflow: hidden;
+}
+.cta-bg {
+  position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse, rgba(204,31,31,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cta-section .section-title { font-size: clamp(2.2rem, 5vw, 4rem); position: relative; z-index: 1; }
+.cta-section .section-sub { margin: 0 auto 2.8rem; position: relative; z-index: 1; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+/* ──────────────── FOOTER ──────────────── */
+footer {
+  background: var(--ez-bg); border-top: 1px solid var(--ez-border);
+  padding: 3rem 5vw;
+}
+.footer-main {
+  display: flex; gap: 3rem; flex-wrap: wrap;
+  justify-content: space-between; margin-bottom: 2.5rem;
+}
+.footer-brand img { height: 48px; margin-bottom: 1rem; }
+.footer-brand p { font-size: 0.85rem; color: var(--ez-muted); max-width: 260px; line-height: 1.6; }
+.footer-col h4 {
+  font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--ez-red);
+  margin-bottom: 1rem;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-col ul a { font-size: 0.85rem; color: var(--ez-muted); text-decoration: none; transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--ez-text); }
+.footer-bottom {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  border-top: 1px solid var(--ez-border); padding-top: 1.5rem;
+  font-size: 0.8rem; color: var(--ez-subtle);
+}
+.footer-socials { display: flex; gap: 0.5rem; }
+.footer-socials a {
+  width: 30px; height: 30px; border-radius: 6px;
+  border: 1px solid var(--ez-border); color: var(--ez-muted);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; font-size: 0.8rem; transition: all 0.2s;
+}
+.footer-socials a:hover { border-color: var(--ez-red); color: var(--ez-red); }
+
+/* ──────────────── RESPONSIVE ──────────────── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .wd-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .wd-visual { order: -1; }
+  .loc-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .stat { border-right: none; border-bottom: 1px solid var(--ez-border); }
+  .footer-main { flex-direction: column; }
+}
+
+/* ──────────────── ANIMATIONS ──────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade { animation: fadeUp 0.7s ease forwards; }
+.d1 { animation-delay: 0.1s; opacity: 0; }
+.d2 { animation-delay: 0.25s; opacity: 0; }
+.d3 { animation-delay: 0.4s; opacity: 0; }
+
+/* SCROLL REVEAL via intersection observer */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="nav-logo" aria-label="EZCompu Soluciones inicio">
+    <img src="logo3.png" alt="EZCompu Soluciones logo"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hardware">Equipos</a></li>
+    <li><a href="#software">Software</a></li>
+    <li><a href="#webdev">Web</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-social">
+      <a href="https://www.facebook.com/EzCompuSoluciones" target="_blank" rel="noopener" aria-label="Facebook EZCompu" title="Facebook">f</a>
+      <a href="https://wa.me/573000000000" target="_blank" rel="noopener" aria-label="WhatsApp EZCompu" title="WhatsApp">✆</a>
+    </div>
+    <a href="#contacto" class="nav-cta">Cotizar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-logo fade">
+    <img src="logo3.png" alt="EZCompu Soluciones — Tecnología en Cimitarra Santander"/>
+  </div>
+  <div class="hero-eyebrow fade d1">Cimitarra, Santander · Colombia</div>
+  <h1 class="hero-title fade d1">
+    Tecnología <span class="red">integral</span><br/>
+    para tu <span class="navy">negocio</span>
+  </h1>
+  <p class="hero-sub fade d2">
+    Venta de equipos, mantenimiento técnico, desarrollo web y software a medida. Todo lo que necesitas para digitalizarte, en un solo lugar.
+  </p>
+  <div class="hero-actions fade d3">
+    <a href="https://wa.me/573102542129" class="btn-red" target="_blank" rel="noopener">
+      WhatsApp →
+    </a>
+    <a href="#hardware" class="btn-outline">Ver servicios</a>
+  </div>
+  <div class="hero-badges fade d3">
+    <span class="hero-badge">📍 Cimitarra, Santander</span>
+    <span class="hero-badge">⭐ +5 estrellas en Google</span>
+    <span class="hero-badge">🔧 Diagnóstico gratis</span>
+    <span class="hero-badge">💳 Financia con Addi</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip" role="region" aria-label="Estadísticas EZCompu">
+  <div class="stat"><div class="stat-n">+500</div><div class="stat-l">Clientes atendidos</div></div>
+  <div class="stat"><div class="stat-n">6</div><div class="stat-l">Líneas de servicio</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">Softwares propios</div></div>
+  <div class="stat"><div class="stat-n">⭐5</div><div class="stat-l">En Google Maps</div></div>
+</div>
+
+<!-- HARDWARE / EQUIPOS -->
+<section id="hardware" aria-labelledby="hw-title">
+  <div class="sh reveal">
+    <div class="section-chip chip-red">Equipos &amp; Soporte</div>
+    <h2 class="section-title" id="hw-title">Venta y Mantenimiento<br/>de Equipos</h2>
+    <p class="section-sub">Computadores, impresoras, componentes y accesorios. Nuevos y reacondicionados con financiación disponible.</p>
+  </div>
+  <div class="hw-grid reveal">
+    <div class="hw-card">
+      <div class="hw-ico">🖥️</div>
+      <span class="hw-tag">Venta</span>
+      <h3>Computadores</h3>
+      <p>Equipos de escritorio, portátiles y all-in-one. Nuevos y reacondicionados. Financiación con Addi y Sistecrédito.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-ico">🖨️</div>
+      <span class="hw-tag">Venta</span>
+      <h3>Impresoras</h3>
+      <p>Epson, HP, Canon y más. Venta, recarga de tinta/tóner, mantenimiento y repuestos originales.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-ico">⚙️</div>
+      <span class="hw-tag">Componentes</span>
+      <h3>Componentes</h3>
+      <p>RAM, discos SSD/HDD, fuentes de poder, tarjetas gráficas, UPS y periféricos varios.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-ico">🔧</div>
+      <span class="hw-tag">Servicio Técnico</span>
+      <h3>Mantenimiento</h3>
+      <p>Limpieza profunda, formateo, cambio de piezas, instalación de Windows/Linux. Diagnóstico gratuito.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-ico">🌐</div>
+      <span class="hw-tag">Remoto</span>
+      <h3>Soporte Remoto</h3>
+      <p>Asistencia técnica por internet para resolver problemas de software de forma rápida y segura.</p>
+    </div>
+    <div class="hw-card">
+      <div class="hw-ico">☁️</div>
+      <span class="hw-tag">Nube</span>
+      <h3>Soluciones Cloud</h3>
+      <p>Google Workspace, AWS, backup en la nube y herramientas de colaboración para tu negocio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOFTWARE -->
+<section id="software" style="background: var(--ez-bg2);" aria-labelledby="sw-title">
+  <div class="sh reveal">
+    <div class="section-chip chip-navy">Software Propio</div>
+    <h2 class="section-title" id="sw-title">Nuestros Desarrollos<br/>de Software</h2>
+    <p class="section-sub">Soluciones tecnológicas construidas en EZCompu para necesidades reales de empresas y usuarios.</p>
+  </div>
+  <div class="sw-grid">
+    <!-- UPCADEMY -->
+    <div class="sw-card reveal">
+      <div class="sw-header">
+        <div class="sw-icon-wrap navy">🎓</div>
+        <div>
+          <div class="sw-name">Upcademy</div>
+          <div class="sw-tagline">Plataforma de gestión de notas académicas</div>
+        </div>
+      </div>
+      <span class="sw-badge prod">Disponible</span>
+      <p class="sw-desc">Software para instituciones educativas y estudiantes que facilita el registro, seguimiento y gestión de notas y calificaciones.</p>
+      <ul class="sw-features">
+        <li>Gestión de calificaciones y periodos</li>
+        <li>Reportes y boletines automáticos</li>
+        <li>Interfaz intuitiva para docentes</li>
+        <li>Acceso web multiplataforma</li>
+      </ul>
+    </div>
+    <!-- EZSOFT -->
+    <div class="sw-card reveal">
+      <div class="sw-header">
+        <div class="sw-icon-wrap red">💼</div>
+        <div>
+          <div class="sw-name">EzSoft</div>
+          <div class="sw-tagline">Ventas · Inventarios · Servicio Técnico</div>
+        </div>
+      </div>
+      <span class="sw-badge prod">Disponible</span>
+      <p class="sw-desc">Sistema integral de administración para tiendas y talleres técnicos. Controla tus ventas, inventario y órdenes de servicio en un solo lugar.</p>
+      <ul class="sw-features">
+        <li>Punto de venta y facturación</li>
+        <li>Control de inventario en tiempo real</li>
+        <li>Gestión de órdenes de servicio técnico</li>
+        <li>Reportes de ventas y movimientos</li>
+      </ul>
+    </div>
+    <!-- RUTAS LECHERAS -->
+    <div class="sw-card reveal">
+      <div class="sw-header">
+        <div class="sw-icon-wrap gold">🐄</div>
+        <div>
+          <div class="sw-name">RutaLeche</div>
+          <div class="sw-tagline">Control de rutas lecheras</div>
+        </div>
+      </div>
+      <span class="sw-badge new">En desarrollo</span>
+      <p class="sw-desc">Software especializado para el control y manejo de rutas de recolección de leche. Diseñado para ganaderos y cooperativas del sector lácteo.</p>
+      <ul class="sw-features">
+        <li>Registro de recolección por ruta y proveedor</li>
+        <li>Control de calidad y análisis de leche</li>
+        <li>Liquidación automática a productores</li>
+        <li>Seguimiento de rutas y vehículos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DESARROLLO WEB -->
+<section id="webdev" aria-labelledby="wd-title">
+  <div class="wd-wrap">
+    <div class="wd-visual reveal">
+      <div class="wd-browser">
+        <div class="wd-dot" style="background:#ff5f57;"></div>
+        <div class="wd-dot" style="background:#febc2e;"></div>
+        <div class="wd-dot" style="background:#28c840;"></div>
+        <div style="flex:1; background: rgba(255,255,255,0.05); height:22px; border-radius:4px; margin-left:8px;"></div>
+      </div>
+      <div class="wd-body">
+        <div class="wd-bar red-accent short"></div>
+        <div class="wd-bar full"></div>
+        <div class="wd-bar med"></div>
+        <div class="wd-bar short"></div>
+        <div class="wd-grid-mock">
+          <div class="wd-block accent"></div>
+          <div class="wd-block"></div>
+          <div class="wd-block"></div>
+          <div class="wd-block accent"></div>
+        </div>
+        <div class="wd-bar full" style="margin-top:0.4rem;"></div>
+        <div class="wd-bar med"></div>
+        <div class="wd-bar short"></div>
+      </div>
+    </div>
+    <div class="wd-content reveal">
+      <div class="section-chip chip-navy">Desarrollo Web</div>
+      <h2 class="section-title" id="wd-title">Sitios Web y<br/>Proyectos Digitales</h2>
+      <p class="section-sub">Construimos tu presencia digital con tecnología moderna, rápida y optimizada para posicionarte en Google.</p>
+      <ul class="wd-services">
+        <li>Landing pages y sitios web corporativos</li>
+        <li>Tiendas online y e-commerce</li>
+        <li>Aplicaciones web a medida</li>
+        <li>SEO y posicionamiento en buscadores</li>
+        <li>Mantenimiento y hosting</li>
+        <li>Diseño UX/UI profesional</li>
+      </ul>
+      <div class="tech-tags">
+        <span class="tech-tag">Astro</span>
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">Next.js</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">AWS</span>
+        <span class="tech-tag">WordPress</span>
+        <span class="tech-tag">Tailwind</span>
+      </div>
+      <a href="#contacto" class="btn-red" style="margin-top:2rem; display:inline-flex;">Pedir cotización →</a>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACION + MAPA -->
+<section id="ubicacion" class="location-section" aria-labelledby="loc-title">
+  <div class="sh reveal" style="max-width:none;">
+    <div class="section-chip chip-red">Dónde estamos</div>
+    <h2 class="section-title" id="loc-title">Visítanos en Cimitarra,<br/>Santander</h2>
+  </div>
+  <div class="loc-wrap">
+    <div class="map-frame reveal" role="region" aria-label="Mapa ubicación EZCompu Soluciones Cimitarra">
+      <iframe
+        title="Ubicación EZCompu Soluciones - Cra 3 #7-95 Cimitarra Santander"
+        src="https://maps.google.com/maps?q=EZCompu+Soluciones,+Cra+3+%237-95,+Cimitarra,+Santander,+Colombia&output=embed&z=16"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <div class="loc-info reveal">
+      <div class="loc-item">
+        <div class="loc-ico">📍</div>
+        <div>
+          <h4>Dirección</h4>
+          <p>Cra. 3 # 7-95, Cimitarra, Santander, Colombia</p>
+        </div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-ico">🕐</div>
+        <div>
+          <h4>Horario de atención</h4>
+          <p>Lunes a Viernes: 8:00 am – 6:00 pm<br/>Sábados: 8:00 am – 1:00 pm</p>
+        </div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-ico">📱</div>
+        <div>
+          <h4>WhatsApp y contacto</h4>
+          <p><a href="https://wa.me/573000000000" style="color: var(--ez-red); text-decoration: none;">Escríbenos por WhatsApp →</a></p>
+        </div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-ico">📧</div>
+        <div>
+          <h4>Correo electrónico</h4>
+          <p><a href="mailto:contacto@ezcompusoluciones.com" style="color: var(--ez-muted); text-decoration: none;">contacto@ezcompusoluciones.com</a></p>
+        </div>
+      </div>
+      <div class="reviews-strip">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Excelente atención y precio justo. Encantada con mi nuevo computador."</p>
+        <p class="review-author">— Luisa Flórez · Google Maps</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REDES SOCIALES -->
+<section class="social-section" aria-labelledby="social-title">
+  <div style="text-align:center;">
+    <div class="section-chip chip-navy">Síguenos</div>
+    <h2 class="section-title reveal" id="social-title">Encuéntranos en<br/>Redes Sociales</h2>
+    <p class="section-sub reveal" style="margin: 0 auto;">Sigue nuestro contenido, consejos tecnológicos, promociones y novedades.</p>
+  </div>
+  <div class="social-cards">
+    <a href="https://www.facebook.com/EzCompuSoluciones" target="_blank" rel="noopener" class="social-card fb reveal" aria-label="Facebook EZCompu">
+      <div class="s-icon fb">f</div>
+      <div class="s-name">Facebook</div>
+      <div class="s-handle">@EzCompuSoluciones</div>
+    </a>
+    <a href="https://wa.me/573000000000" target="_blank" rel="noopener" class="social-card wa reveal" aria-label="WhatsApp EZCompu">
+      <div class="s-icon wa">✆</div>
+      <div class="s-name">WhatsApp</div>
+      <div class="s-handle">Escríbenos directo</div>
+    </a>
+    <a href="https://www.instagram.com/ezcompusoluciones" target="_blank" rel="noopener" class="social-card ig reveal" aria-label="Instagram EZCompu">
+      <div class="s-icon ig">◎</div>
+      <div class="s-name">Instagram</div>
+      <div class="s-handle">@ezcompusoluciones</div>
+    </a>
+    <a href="https://www.youtube.com/@EzCompuSoluciones" target="_blank" rel="noopener" class="social-card yt reveal" aria-label="YouTube EZCompu">
+      <div class="s-icon yt">▶</div>
+      <div class="s-name">YouTube</div>
+      <div class="s-handle">EzCompu Soluciones</div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contacto" class="cta-section" aria-labelledby="cta-title">
+  <div class="cta-bg"></div>
+  <div class="section-chip chip-red reveal" style="display:inline-block;">¿Listo para empezar?</div>
+  <h2 class="section-title reveal" id="cta-title" style="margin: 0.8rem auto 1rem;">
+    ¿Necesitas ayuda con<br/>tu tecnología?
+  </h2>
+  <p class="section-sub reveal" style="margin: 0 auto 2.8rem;">
+    Visítanos en Cimitarra o escríbenos. Diagnóstico gratis, atención personalizada y precios justos.
+  </p>
+  <div class="cta-actions reveal">
+    <a href="https://wa.me/573000000000" class="btn-red" target="_blank" rel="noopener">📱 WhatsApp</a>
+    <a href="https://www.facebook.com/EzCompuSoluciones" class="btn-outline" target="_blank" rel="noopener">Facebook</a>
+    <a href="mailto:contacto@ezcompusoluciones.com" class="btn-outline">Email</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="logo3.png" alt="EZCompu Soluciones"/>
+      <p>Soluciones tecnológicas integrales en Cimitarra, Santander. Venta, servicio técnico, software y desarrollo web.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#hardware">Venta de Equipos</a></li>
+        <li><a href="#hardware">Mantenimiento Técnico</a></li>
+        <li><a href="#hardware">Soporte Remoto</a></li>
+        <li><a href="#hardware">Soluciones Cloud</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Software</h4>
+      <ul>
+        <li><a href="#software">Upcademy</a></li>
+        <li><a href="#software">EzSoft</a></li>
+        <li><a href="#software">Rutas Lecheras</a></li>
+        <li><a href="#webdev">Desarrollo Web</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="#ubicacion">Cra. 3 #7-95, Cimitarra</a></li>
+        <li><a href="https://www.facebook.com/EzCompuSoluciones" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://wa.me/573000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="mailto:contacto@ezcompusoluciones.com">Email</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 EZCompu Soluciones · Cimitarra, Santander, Colombia · <a href="https://ezcompusoluciones.com" style="color:var(--ez-red); text-decoration:none;">ezcompusoluciones.com</a></span>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/EzCompuSoluciones" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+      <a href="https://wa.me/573000000000" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+      <a href="https://www.instagram.com/ezcompusoluciones" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
